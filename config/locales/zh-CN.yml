@@ -1,0 +1,11 @@
+zh-CN:
+  mongoid:
+    models:
+      category: "分类"
+    attributes:
+      category:
+        title: "名字"
+        description: "描述"
+        entry_name: "别名"
+        created_at: "创建时间"
+    errors:

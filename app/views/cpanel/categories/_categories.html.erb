@@ -1,0 +1,24 @@
+<% @categories.each do |category| %>
+  <tr>
+    <td class="select-all">
+      <%= check_box_tag "category_ids[]", category.id, false, :id => "category_#{category.id}" %>
+    </td>
+    <td class="content">
+    	<h6><%= link_to category.title.truncate(76), category_path(category) %></h6>
+    	<div class="description"><%= category.description %></div>
+    </td>
+    <td class="date"><%= l category.created_at.to_date, :format => :long %></td>
+    <td class="action">
+      <%= link_to raw("<i class=\"icon-edit icon-large\"></i>"), 
+                  edit_cpanel_category_path(category), 
+                  :title => t("cpanel.buttons.edit", :model => category.title),
+                  :rel => :tooltip %>
+      <%= link_to raw("<i class=\"icon-trash icon-large\"></i>"),
+                  cpanel_category_path(category),
+                  :method => :delete,
+                  :title => t("cpanel.buttons.destroy", :model => category.title),
+                  :data => { :confirm => t("cpanel.messages.confirm") },
+                  :rel => :tooltip %>
+    </td>
+  </tr>
+<% end %>

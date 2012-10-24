@@ -1,0 +1,11 @@
+zh-CN:
+  pages:
+    login:
+      title: "登录"
+      keywords: "登录，login"
+      description: "登录"
+  links:
+    back_front: "回到前台"
+    logout: "退出"
+  buttons:
+    login: "登录"

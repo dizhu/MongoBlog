@@ -1,0 +1,31 @@
+zh-CN:
+  cpanel:
+    root: "控制台"
+    pages:
+      home:
+        index: "首页"
+      categories:
+        index: "分类"
+        search: "搜索"
+        new: "添加分类"
+        edit: "修改分类"
+    menus:
+      root: "首页"
+      category: "分类"
+    links:
+      back_front: "返回前台"
+      logout: "退出"
+      action: "操作"
+    buttons:
+      list: "%{model}列表"
+      new:  "添加%{model}"
+      edit: "修改%{model}"
+      destroy: "删除%{model}"
+      cancel: "取消"
+      destroies: "批量删除"
+      search: "搜索"
+    messages:
+      success: "操作成功！"
+      error: "操作失败！"
+      warning: "警告！"
+      confirm: "你确定要这样做吗？"
