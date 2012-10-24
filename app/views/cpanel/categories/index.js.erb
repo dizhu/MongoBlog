@@ -1,7 +1,0 @@
-<% if !@categories.blank? %>
-  $(".table")
-    .find("tbody")
-      .empty()
-      .append("<%= j(render("categories")) %>");
-  $(".pagination").replaceWith("<%= j(paginate @categories, :theme => "admin", :remote => true) %>")
-<% end %>

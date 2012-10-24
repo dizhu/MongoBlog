@@ -46,6 +46,17 @@ class Cpanel::CategoriesController < Cpanel::ApplicationController
 		end
 	end
   
+  def destroies
+		if params[:category_ids].blank?
+			return redirect_to cpanel_categories_path, :alert => t("cpanel.messages.select_empty")
+		end
+		if Category.destroy_all(:_id.in => params[:category_ids])
+			redirect_to cpanel_categories_path, :notice => t("cpanel.messages.success")
+		else
+			redirect_to cpanel_categories_path, :alert => t("cpanel.messages.error")
+		end
+  end
+  
   def search
     set_page_tags(t("cpanel.pages.categories.search"))
     @categories = Category.search(params[:q]).page(params[:page]).per(Setting.cpanel_page_size)
