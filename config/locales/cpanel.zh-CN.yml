@@ -6,16 +6,23 @@ zh-CN:
         index: "首页"
       categories:
         index: "分类"
-        search: "搜索"
+        search: "搜索分类"
         new: "添加分类"
         edit: "修改分类"
+      posts:
+        index: "文章"
+        search: "搜索文章"
+        new: "添加文章"
+        edit: "修改文章"
     menus:
       root: "首页"
       category: "分类"
+      post: "文章"
     links:
       back_front: "返回前台"
       logout: "退出"
       action: "操作"
+      prompt: "选择内容"
     buttons:
       list: "%{model}列表"
       new:  "添加%{model}"

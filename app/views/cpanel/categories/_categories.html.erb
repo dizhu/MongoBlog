@@ -7,6 +7,7 @@
     	<h6><%= link_to category.title.truncate(76), category_path(category) %></h6>
     	<div class="description"><%= category.description %></div>
     </td>
+    <td class="num"><%= category.posts_count %></td>
     <td class="date"><%= l category.created_at.to_date, :format => :long %></td>
     <td class="action">
       <%= link_to raw("<i class=\"icon-edit icon-large\"></i>"), 

@@ -2,10 +2,21 @@ zh-CN:
   mongoid:
     models:
       category: "分类"
+      post: "文章"
     attributes:
       category:
         title: "名字"
         description: "描述"
         entry_name: "别名"
         created_at: "创建时间"
+        posts_count: "文章数"
+      post:
+        title: "名字"
+        body: "内容"
+        description: "描述"
+        entry_name: "别名"
+        created_at: "创建时间"
+        category_id: "分类"
+        category: "分类"
+        impressions_count: "阅读数"
     errors:

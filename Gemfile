@@ -15,19 +15,19 @@ gem 'rails-i18n'
 gem 'mongoid'
 gem 'mongoid_auto_increment_id', '0.5.0'
 gem 'mongoid_colored_logger', :github => 'huacnlee/mongoid_colored_logger'
-# gem 'mongoid-app_settings', git: 'https://github.com/sapronlee/mongoid-app_settings.git'
-gem 'mongoid-app_settings'
+gem 'mongoid_counter_cache', :github => 'ZhangHanDong/mongoid_counter_cache'
+gem 'mongoid-app_settings', :github => 'sapronlee/mongoid-app_settings'
+gem 'impressionist', :github => 'charlotte-ruby/impressionist'
 
 # devise
 gem 'devise'
 
 # bootstrap
 gem 'anjlab-bootstrap-rails', '>= 2.1', :require => 'bootstrap-rails'
-gem 'bootstrap_helper', git: 'https://github.com/sapronlee/bootstrap-helper.git'
+gem 'bootstrap_helper', :github => 'sapronlee/bootstrap-helper'
 
 gem 'simple_form'
 gem 'kaminari', git: 'https://github.com/amatsuda/kaminari.git'
-# gem 'settingslogic'
 gem 'mongoid_slug'
 
 

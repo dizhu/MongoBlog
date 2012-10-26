@@ -1,21 +1,21 @@
-<% model_class = Category %>
+<% model_class = Post %>
 
 <% content_for :toolbar do %>
 	<div class="btn-group">
 		<% if %w(index search).include?(action_name) -%>
 			<%= link_to t("cpanel.buttons.new", :model => model_class.model_name.human), 
-				new_cpanel_category_path, :class => "btn btn-primary" %>
-			<%= link_to t("cpanel.buttons.destroies"), destroies_cpanel_categories_path, :class => "btn btn-primary destroies" %>
+				new_cpanel_post_path, :class => "btn btn-primary" %>
+			<%= link_to t("cpanel.buttons.destroies"), destroies_cpanel_posts_path, :class => "btn btn-primary destroies" %>
 		<% end -%>
 		<% if %w(new create edit update).include?(action_name) -%>
 			<%= link_to t("cpanel.buttons.list", :model => model_class.model_name.human), 
-				cpanel_categories_path, :class => "btn btn-primary" %>
+				cpanel_posts_path, :class => "btn btn-primary" %>
 		<% end -%>
 	</div>
 	<div class="btn-group pull-right">
-		<%= simple_form_for :category, :url => search_cpanel_categories_path, :method => :get do |f| %>
+		<%= simple_form_for :post, :url => search_cpanel_posts_path, :method => :get do |f| %>
 			<div class="input-append">
-		    <input type="search" name="q" class="span3" value="<%= @query %>" placeholder="<%= t("cpanel.pages.categories.search") %>" />
+		    <input type="search" name="q" class="span3" value="<%= @query %>" placeholder="<%= t("cpanel.pages.posts.search") %>">
 		    <button type="submit" class="btn"><%= t("cpanel.buttons.search") %></button>
 		  </div>
 		<% end -%>

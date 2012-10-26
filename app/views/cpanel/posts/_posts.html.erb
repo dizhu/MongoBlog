@@ -1,0 +1,25 @@
+<% @posts.each do |post| %>
+  <tr>
+    <td class="select-all">
+      <%= check_box_tag "post_ids[]", post.id, false, :id => "post_#{post.id}" %>
+    </td>
+    <td class="content">
+    	<h6><%= link_to post.title.truncate(76), post_path(post) %></h6>
+    	<div class="description"><%= post.description %></div>
+    </td>
+    <td class="num"><%= post.impressions_count %></td>
+    <td class="date"><%= l post.created_at.to_date, :format => :long %></td>
+    <td class="action">
+      <%= link_to raw("<i class=\"icon-edit icon-large\"></i>"), 
+                  edit_cpanel_post_path(post), 
+                  :title => t("cpanel.buttons.edit", :model => post.title),
+                  :rel => :tooltip %>
+      <%= link_to raw("<i class=\"icon-trash icon-large\"></i>"),
+                  cpanel_post_path(post),
+                  :method => :delete,
+                  :title => t("cpanel.buttons.destroy", :model => post.title),
+                  :data => { :confirm => t("cpanel.messages.confirm") },
+                  :rel => :tooltip %>
+    </td>
+  </tr>
+<% end %>

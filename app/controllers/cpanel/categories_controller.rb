@@ -60,6 +60,7 @@ class Cpanel::CategoriesController < Cpanel::ApplicationController
   def search
     set_page_tags(t("cpanel.pages.categories.search"))
     @categories = Category.search(params[:q]).page(params[:page]).per(Setting.cpanel_page_size)
+    @query = params[:q]
     render :index
   end
 

@@ -1,7 +1,10 @@
 /*
  *= require application
+ *= require jquery/redactor
  *= require_self
  */
+
+@import "twitter/bootstrap/mixins";
 
 body { 
 	color: #333;
@@ -39,6 +42,10 @@ pre {
 		&.date {
 			width: 100px;
 		}
+    &.num {
+      width: 50px;
+      text-align: center;
+    }
 		&.content {
 			padding: 4px 8px;
 			h6 {
@@ -182,5 +189,11 @@ pre {
   }
   .current::after, .current::before {
   	content: normal;
+  }
+}
+
+.redactor_box {
+  .redactor {
+    height: 400px;
   }
 }
