@@ -1,0 +1,13 @@
+<% if !@album.errors.any? -%>
+	$(".modal").modal('hide');
+  if($(".albums .thumbnails").find("li").size() == <%= Setting.cpanel_album_page_size %>) {
+    $(".albums .thumbnails").find("li:last").remove();
+  }
+  $(".albums .thumbnails").prepend("<%= j(render :partial => "album", :object => @album) %>");
+  
+  $("#main")
+    .find(".alert.fade.in").remove()
+    .end()
+    .find("#toolbar")
+    .after("<%= j(bootstrap_alert(t("cpanel.messages.success"), "success")) %>");
+<% end -%>

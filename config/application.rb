@@ -5,6 +5,8 @@ require "action_mailer/railtie"
 require "active_resource/railtie"
 require "sprockets/railtie"
 require "rails/test_unit/railtie"
+require 'carrierwave/processing/mini_magick'
+require "digest/md5"
 
 if defined?(Bundler)
   Bundler.require(*Rails.groups(:assets => %w(production development test)))

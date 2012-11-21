@@ -12,6 +12,9 @@ zh-CN:
         title: "必填，100个字符以内。"
         description: "选填，200个字符以内。"
         entry_name: "选填，网址的别名，100个字符以内，只能包含英文字母，数字和'-'。"
+      album:
+        title: "必填，100个字符以内。"
+        description: "选填，200个字符以内。"
     placeholders:
       user:
         email: "你的邮箱"

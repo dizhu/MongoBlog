@@ -1,0 +1,13 @@
+<%= render "base" %>
+<div class="albums">
+  <ul class="thumbnails">
+    <% @albums.each do |album| %>
+      <%= render :partial => "album", :object => album %>
+    <% end %>
+  </ul>
+  <div class="table-footer clearfix">
+    <div class="paginates-info"><%= page_entries_info @albums %></div>
+    <%= paginate @albums, :theme => "admin" %>
+  </div>
+</div>
+<%= render "cpanel/shared/modal_frame" %>

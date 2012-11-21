@@ -1,0 +1,14 @@
+<script id="template-download" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+  <tr class="template-download fade">
+    <td class="info-wrapper">
+      <div class="actions">
+        <div class="error"><span class="label label-important">Error</span> {%=file%}</div>
+        <div class="cancel action">
+          <button class="btn btn-warning"><i class="icon-ban-circle icon-white"></i></button>
+        </div>
+      </div>
+    </td>
+  </tr>
+{% } %}
+</script>

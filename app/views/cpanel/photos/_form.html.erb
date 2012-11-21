@@ -1,0 +1,21 @@
+<%= simple_form_for [:cpanel, @album, @photo], :html => { :class => :uploadfiles } do |f| %>
+  <div class="fileupload-buttonbar">
+    <div class="buttons">
+      <span class="btn btn-success fileinput-button">
+        <i class="icon-plus icon-white"></i>
+        <span><%= t("cpanel.buttons.add_files") %></span>
+        <input id="photo_image" name="photo[image]" type="file" multiple="multiple">
+      </span>
+      <button type="submit" class="btn btn-primary start">
+        <i class="icon-upload icon-white"></i>
+        <span><%= t("cpanel.buttons.start_upload") %></span>
+      </button>
+    </div>
+  </div>
+  <table class="table table-striped">
+    <tbody class="files"></tbody>
+  </table>
+<% end -%>
+
+<%= render "template-upload" %>
+<%= render "template-download" %>

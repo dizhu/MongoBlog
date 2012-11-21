@@ -1,0 +1,1 @@
+$(".photos").replaceWith("<%= j(render "photos") %>");

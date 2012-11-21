@@ -1,0 +1,11 @@
+<% if !@album.errors.any? -%>
+	$(".modal").modal('hide');
+  $(".albums.thumbnails")
+    .find("li#album_<%= @album.id %>").replaceWith("<%= j(render :partial => "album", :object => @album) %>");
+  
+  $("#main")
+    .find(".alert.fade.in").remove()
+    .end()
+    .find("#toolbar")
+    .after("<%= j(bootstrap_alert(t("cpanel.messages.success"), "success")) %>");
+<% end -%>

@@ -1,0 +1,18 @@
+<li id="album_<%= album.id %>" class="span3">
+  <a href="<%= cpanel_album_photos_path(album) %>" class="thumbnail">
+    <img src="<%= asset_path("small_album.png") %>" alt="<%= album.title %>">
+  </a>
+  <div class="info clearfix">
+    <h3><%= album.title.truncate(20) %></h3>
+    <div class="action">
+      <%= link_to t("cpanel.links.edit"), edit_cpanel_album_path(album),
+        :remote => true,
+        :class => "label label-warning" %>
+      <%= link_to t("cpanel.links.destroy"), cpanel_album_path(album),
+        :method => :delete,
+        :data => { :confirm => t("cpanel.messages.confirm") },
+        :class => "label label-important" %>
+    </div>
+    <span class="badge badge-info"><%= album.photos_count %></span>
+  </div>
+</li>

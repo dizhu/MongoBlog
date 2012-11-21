@@ -1,6 +1,8 @@
 /*
  *= require application
  *= require jquery/redactor
+ *= require jquery/uploadify
+ *= require jquery/fileupload-ui
  *= require_self
  */
 
@@ -96,10 +98,26 @@ pre {
 		color: #999;
 	}
 	label.required {
-    abbr { color: #c00;}
+    abbr { 
+      color: #c00;
+    }
   }
   .form-actions {
   	margin-bottom: 0;
+  }
+  .highest {
+    height: 400px;
+  }
+}
+.modal .simple_form {
+  .longest {
+    width: 516px;
+  }
+  textarea.highest {
+    height: 80px;
+  }
+  textarea.longest {
+    max-width: 516px;
   }
 }
 
@@ -128,7 +146,6 @@ pre {
 	padding: 9px;
 	background: #fff;
 }
-
 .breadcrumb {
 	width: 100%;
   li {
@@ -195,5 +212,138 @@ pre {
 .redactor_box {
   .redactor {
     height: 400px;
+  }
+}
+
+.albums {
+  .thumbnails {
+    .span3 {
+      width: 215px;
+    }
+    .thumbnail {
+      height: 140px;
+      width: 205px;
+      line-height: 140px;
+      font-size: 140px;
+      img {
+        max-width: 205px;
+        max-height: 140px;
+      }
+    }
+    .info {
+      margin-top: 10px;
+      padding: 0 5px;
+      h3, .action {
+        float: left;
+        width: 70%;
+        overflow: hidden;
+      }
+      h3 {
+        font-size: 14px;
+        margin: 0;
+        line-height: 20px;
+        height: 20px;
+        color: #555;
+      }
+      span.badge {
+        float: right;
+        padding: 2px 9px;
+        margin-top: 1px;
+      }
+      .action {
+        display: none;
+      }
+    }
+  }
+}
+.photos {
+  .thumbnails {
+    li {
+      position: relative;
+    }
+    .span3 {
+      width: 215px;
+    }
+    .thumbnail {
+      @include border-radius(0);
+      width: 205px;
+      height: 140px;
+      line-height: 140px;
+      margin: 0 auto;
+      vertical-align: middle;
+      display: table-cell;
+      text-align: center;
+      *display: block;
+      *font-size:122.2px;
+      *font-family:Arial;
+      img {
+        vertical-align: middle;
+      }
+    }
+    h3 {
+      font-size: 14px;
+      margin: 0;
+      line-height: 20px;
+      height: 20px;
+      color: #555;
+      margin-top: 5px;
+      text-align: center;
+    }
+    .action {
+      position: absolute;
+      bottom: 30px;
+      right: 5px;
+      display: none;
+    }
+  }
+}
+.photo {
+  padding: 10px 0;
+  .photo_wrapper {
+    text-align: center;
+    img {
+      vertical-align: middle;
+    }
+  }
+}
+
+.uploadfiles {
+  .table {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 530px;
+  }
+  .files {
+    .preview {
+      text-align: center;
+      width: 80px;
+      span {
+        display: block;
+        width: 80px;
+        height: 80px;
+        margin: 0 auto;
+        line-height: 80px;
+        canvas {
+          vertical-align: middle;
+        }
+      }
+    }
+    .actions {
+      div {
+        float: left;
+      }
+      .progress, .error {
+        margin-top: 5px;
+        width: 300px;
+      }
+      .error {
+        overflow: hidden;
+        height: 20px;
+        margin-bottom: 20px;
+      }
+      .action {
+        margin-left: 10px;
+      }
+    }
   }
 }

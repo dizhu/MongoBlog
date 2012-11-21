@@ -1,0 +1,29 @@
+<script id="template-upload" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+  <tr class="template-upload fade">
+    <td class="preview"><span class="fade"></span></td>
+    <td class="info-wrapper">
+      <div class="info">
+        <span class="name">{%=file.name%}</span> - <span class="size">{%=o.formatFileSize(file.size)%}</span>
+      </div>
+      <div class="actions">
+        {% if (o.files.valid && !i) { %}
+          <div class="progress progress-success progress-striped active" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="bar" style="width:0%;"></div>
+          </div>
+          {% if (!o.options.autoUpload) { %}
+            <div class="start action">
+              <button class="btn btn-primary"><i class="icon-upload icon-white"></i></button>
+            </div>
+          {% } %}
+        {% } else { %}
+          <div class="error"><span class="label label-important">Error</span> {%=file.error%}</div>
+        {% } %}
+        <div class="cancel action">
+          <button class="btn btn-warning"><i class="icon-ban-circle icon-white"></i></button>
+        </div>
+      </div>
+    </td>
+  </tr>
+{% } %}
+</script>

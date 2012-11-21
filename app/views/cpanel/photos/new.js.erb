@@ -1,0 +1,23 @@
+$(".modal")
+  .find(".modal-header")
+    .find("h3").text("<%= t("cpanel.pages.photos.new") %>").end()
+  .end()
+  .find(".modal-body").empty().append("<%= j(render("form")) %>").end()
+  .find(".modal-footer")
+    .find("button#submit").remove()
+    .end()
+  .end()
+.modal({
+  backdrop: 'static'
+});
+
+$(".uploadfiles").fileupload({
+  maxNumberOfFiles: 10,
+  maxFileSize: 50000000,
+  acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i
+}).bind('fileuploadstopped', function (e) {
+  $.getScript("<%= cpanel_album_photos_path(@album) %>");
+  $(".modal").find(".closed").removeAttr("disabled");
+}).bind('fileuploadstarted', function (e) {
+  $(".modal").find(".closed").attr("disabled", "disabled");
+});

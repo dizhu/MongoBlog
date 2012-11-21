@@ -36,6 +36,11 @@ module ApplicationHelper
     end
     flash_messages.join("\n").html_safe
   end
+  
+  def bootstrap_alert(message, type)
+    text = content_tag(:div, link_to("×", "#", :class => "close", "data-dismiss" => "alert") + message, :class => "alert fade in alert-#{type}")
+    text.html_safe
+  end
 
   def error_messages_for(*params)
     options = params.extract_options!.symbolize_keys

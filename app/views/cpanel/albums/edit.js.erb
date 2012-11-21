@@ -1,0 +1,11 @@
+$(".modal")
+  .find(".modal-header")
+    .find("h3").text("<%= t("cpanel.pages.albums.edit") %>").end()
+  .end()
+  .find(".modal-body").empty().append("<%= j(render("form")) %>").end()
+  .find(".modal-footer")
+    .find("button#submit").click(function() {
+      $(this).parent().parent().find("form").submit();
+    }).end()
+  .end()
+.modal();

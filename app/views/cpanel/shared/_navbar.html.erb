@@ -18,6 +18,9 @@
           <li <%= "class=active" if controller_name == "posts" %>>
             <%= link_to t("cpanel.menus.post"), cpanel_posts_path, :title => t("cpanel.menus.post") %>
           </li>
+          <li <%= "class=active" if %w(albums photos).include? controller_name %>>
+            <%= link_to t("cpanel.menus.album"), cpanel_albums_path, :title => t("cpanel.menus.album") %>
+          </li>
         </ul>
         <ul class="nav pull-right">
           <li class="dropdown" id="user_menu">

@@ -1,0 +1,8 @@
+<%= render "base" %>
+<div class="photo">
+  <div class="photo_wrapper">
+    <%= image_tag @photo.image.url, :class => "img-polaroid" %>
+    <h3><%= @photo.title %></h3>
+    <div class="description"><%= @photo.description %></div>
+  </div>
+</div>

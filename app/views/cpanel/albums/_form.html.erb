@@ -1,0 +1,7 @@
+<%= simple_form_for [:cpanel, @album], :remote => true do |f| %>
+	<fieldset>
+    <%= error_messages_for @album, :class => "control-group alert alert-error fade in", :close => :true %>
+		<%= f.input :title, :input_html => { :class => "longest" } %>
+		<%= f.input :description, :as => :text, :input_html => { :class => "longest highest" } %>
+	</fieldset>
+<% end -%>

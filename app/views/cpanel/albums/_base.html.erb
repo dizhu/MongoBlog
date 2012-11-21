@@ -1,0 +1,22 @@
+<% model_class = Album %>
+
+<% content_for :toolbar do %>
+	<div class="btn-group">
+		<% if %w(index search).include?(action_name) -%>
+			<%= link_to t("cpanel.buttons.new", :model => model_class.model_name.human), 
+				new_cpanel_album_path, :remote => true, :class => "btn btn-primary" %>
+		<% end -%>
+		<% if %w(new create edit update search).include?(action_name) -%>
+			<%= link_to t("cpanel.buttons.list", :model => model_class.model_name.human), 
+				cpanel_albums_path, :class => "btn btn-primary" %>
+		<% end -%>
+	</div>
+	<div class="btn-group pull-right">
+		<%= simple_form_for :category, :url => search_cpanel_albums_path, :method => :get do |f| %>
+			<div class="input-append">
+		    <input type="search" name="q" class="span3" value="<%= @query %>" placeholder="<%= t("cpanel.pages.albums.search") %>" />
+		    <button type="submit" class="btn"><%= t("cpanel.buttons.search") %></button>
+		  </div>
+		<% end -%>
+	</div>
+<% end -%>

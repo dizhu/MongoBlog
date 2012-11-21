@@ -1,0 +1,25 @@
+<div class="photos">
+  <ul class="thumbnails">
+    <% @photos.each do |photo| %>
+      <li id="photo_<%= photo.id %>" class="span3">
+        <a href="<%= cpanel_album_photo_path(@album, photo) %>" class="thumbnail">
+          <img src="<%= photo.image.thumb.url %>" alt="<%= photo.title %>">
+        </a>
+        <div class="info clearfix">
+          <h3><%= photo.title.truncate(25) %></h3>
+        </div>
+        <div class="action">
+          <%= link_to raw("<i class=\"icon-trash icon-white\"></i>"),
+            cpanel_album_photo_path(@album, photo),
+            :method => :delete,
+            :data => { :confirm => t("cpanel.messages.confirm") },
+            :class => "label label-important" %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <div class="table-footer clearfix">
+    <div class="paginates-info"><%= page_entries_info @photos %></div>
+    <%= paginate @photos, :theme => "admin" %>
+  </div>
+</div>

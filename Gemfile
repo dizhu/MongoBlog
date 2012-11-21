@@ -17,6 +17,7 @@ gem 'mongoid_auto_increment_id', '0.5.0'
 gem 'mongoid_colored_logger', :github => 'huacnlee/mongoid_colored_logger'
 gem 'mongoid_counter_cache', :github => 'ZhangHanDong/mongoid_counter_cache'
 gem 'mongoid-app_settings', :github => 'sapronlee/mongoid-app_settings'
+gem 'mongoid_slug'
 gem 'impressionist', :github => 'charlotte-ruby/impressionist'
 
 # devise
@@ -26,16 +27,18 @@ gem 'devise'
 gem 'anjlab-bootstrap-rails', '>= 2.1', :require => 'bootstrap-rails'
 gem 'bootstrap_helper', :github => 'sapronlee/bootstrap-helper'
 
+# carrierwave
+gem 'carrierwave', '~> 0.6.1'
+gem 'carrierwave-mongoid', :github => 'jnicklas/carrierwave-mongoid', :branch => 'mongoid-3.0'
+
+# other
 gem 'simple_form'
-gem 'kaminari', git: 'https://github.com/amatsuda/kaminari.git'
-gem 'mongoid_slug'
-
-
+gem 'kaminari', :github => 'amatsuda/kaminari'
+gem 'flash_cookie_session'
+gem 'mime-types'
+gem 'mini_magick'
+gem 'savon'
 gem 'quiet_assets'
-
-# breadcrumb
-# gem 'crummy', '~> 1.6.0'
-
 
 group :development do
   gem 'thin'
