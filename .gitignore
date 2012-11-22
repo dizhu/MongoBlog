@@ -21,3 +21,5 @@ Vagrantfile
 
 config/mongoid.yml
 config/setting.yml
+
+public/uploads

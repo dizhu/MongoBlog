@@ -1,23 +1,29 @@
 $(".modal")
-  .find(".modal-header")
-    .find("h3").text("<%= t("cpanel.pages.photos.new") %>").end()
-  .end()
+  .find(".modal-header h3").text("<%= t("cpanel.pages.photos.new") %>").end()
   .find(".modal-body").empty().append("<%= j(render("form")) %>").end()
-  .find(".modal-footer")
-    .find("button#submit").remove()
-    .end()
-  .end()
-.modal({
-  backdrop: 'static'
-});
+  .find(".modal-footer button#submit").remove().end()
+  .modal({ backdrop: 'static' });
 
-$(".uploadfiles").fileupload({
-  maxNumberOfFiles: 10,
-  maxFileSize: 50000000,
-  acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i
-}).bind('fileuploadstopped', function (e) {
-  $.getScript("<%= cpanel_album_photos_path(@album) %>");
-  $(".modal").find(".closed").removeAttr("disabled");
-}).bind('fileuploadstarted', function (e) {
-  $(".modal").find(".closed").attr("disabled", "disabled");
+<% key = Rails.application.config.session_options[:key] %>
+var upload_params = {
+  '<%= "#{key}" %>' : '<%= "#{cookies[key]}" %>',
+  '<%= "#{request_forgery_protection_token}" %>' : '<%= "#{form_authenticity_token}" %>',
+  '_http_accept': 'application/javascript'
+};
+
+$("#photo_image").uploadify({
+  'swf': '<%= asset_path("uploadify.swf") %>',
+  'uploader': '<%= cpanel_album_photos_path(@album) %>',
+  'fileObjName': 'photo[image]',
+  'formData': upload_params,
+  'buttonText': '<%= t("cpanel.buttons.select_file") %>',
+  'auto': false,
+  /*'fileTypeExts': '*.gif; *.jpg; *.png; *.jpeg',*/
+  'fileTypeExts': '*.gif; *.jpg; *.png;',
+  'uploadLimit': 10,
+  'fileTypeDesc': '<%= t("cpanel.messages.upload_select_image_desc") %>',
+  'overrideEvents': ['onDialogClose'],
+  'onDialogClose': function(queueData) {
+    MongoBlog.utils.log(this);
+  }
 });
