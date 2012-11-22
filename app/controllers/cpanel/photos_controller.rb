@@ -1,7 +1,8 @@
 class Cpanel::PhotosController < Cpanel::ApplicationController
   
-  before_filter :get_album
+  before_filter :find_album
   before_filter :add_common_breadcrumb, :only => [:index, :show]
+  before_filter :find_or_build_photo, :only => [:new, :create, :destroy]
   
   def index
     set_page_tags(t("cpanel.pages.photos.index"))
@@ -14,12 +15,14 @@ class Cpanel::PhotosController < Cpanel::ApplicationController
   end
   
   def new
-    @photo = @album.photos.new
   end
   
   def create
-    @photo = @album.photos.build params[:photo]
-    @photo.save
+    respond_to do |format|
+      if @photo.save
+        format.js { render :nothing => true }
+      end
+    end
   end
   
   def destroy
@@ -32,13 +35,18 @@ class Cpanel::PhotosController < Cpanel::ApplicationController
   end
   
 	private
-	def get_album
-		@album = Album.find params[:album_id] if !params[:album_id].blank?
+	def find_album
+		@album = Album.find params[:album_id]
+    raise ActiveRecord::RecordNotFound unless @album
 	end
   
 	def add_common_breadcrumb
 		add_breadcrumb(t("cpanel.pages.albums.index"), cpanel_albums_path)
     add_breadcrumb(@album.title, cpanel_album_photos_path(@album))
 	end
+  
+  def find_or_build_photo
+    @photo = params[:id] ? @album.photos.find(params[:id]) : @album.photos.build(params[:photo])
+  end
   
 end

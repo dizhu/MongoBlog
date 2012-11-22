@@ -49,9 +49,7 @@ class ImageUploader < CarrierWave::Uploader::Base
       cols, rows = img[:dimensions]
       if cols < width and rows < height
         img.resize "#{width}x#{height}>"
-        puts "ok"
       else
-        puts "error"
         img.combine_options do |cmd|
           if width != cols || height != rows
             scale_x = width/cols.to_f
@@ -72,22 +70,6 @@ class ImageUploader < CarrierWave::Uploader::Base
         end
       end
       img = yield(img) if block_given?
-      img
-    end
-  end
-  
-  def mogrify(options = {})
-    manipulate! do |img|
-      img.format("png") do |c|
-        c.fuzz        "3%"
-        c.trim
-        c.rotate      "#{options[:rotate]}" if options.has_key?(:rotate)
-        c.resize      "#{options[:resolution]}>" if options.has_key?(:resolution)
-        c.resize      "#{options[:resolution]}<" if options.has_key?(:resolution)
-        c.push        '+profile'
-        c.+           "!xmp,*"
-        c.colorspace  "sRGB"
-      end
       img
     end
   end

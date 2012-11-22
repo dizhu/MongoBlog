@@ -1,9 +1,0 @@
-#= require jquery/jquery.ui.widget
-#= require jquery/tmpl
-#= require jquery/load-image
-#= require jquery/canvas-to-blob
-#= require jquery/iframe-transport
-#= require jquery/fileupload
-#= require jquery/fileupload-fp
-#= require jquery/fileupload-ui
-#= require_self

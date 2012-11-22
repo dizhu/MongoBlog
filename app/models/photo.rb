@@ -34,7 +34,7 @@ class Photo
   private
   def update_image_attributes
     if image.present? && image_changed?
-      self.content_type = image.file.content_type
+      self.content_type = MIME::Types.type_for(image.file.original_filename).first.to_s
       self.file_size = image.file.size
       self.title = image.file.basename.strip if title.blank?
     end

@@ -8,6 +8,7 @@ Released under the MIT License <http://www.opensource.org/licenses/mit-license.p
 	position: relative;
 	margin-bottom: 1em;
   margin: 0 auto;
+  padding-bottom: 1em;
 }
 .uploadify-button {
 	background-color: #505050;
@@ -88,6 +89,6 @@ Released under the MIT License <http://www.opensource.org/licenses/mit-license.p
 }
 .uploadify-progress-bar {
 	background-color: #0099FF;
-	height: 3px;
+	height: 6px;
 	width: 1px;
 }
