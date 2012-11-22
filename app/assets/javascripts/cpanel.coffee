@@ -2,7 +2,6 @@
 #= require jquery/redactor_zh-CN
 #= require jquery/redactor
 #= require jquery/uploadify
-#= require fileuploads
 #= require_self
 
 $ ->

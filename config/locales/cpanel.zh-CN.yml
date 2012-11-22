@@ -60,3 +60,5 @@ zh-CN:
       select_empty: "你没有选中任何东西，操作无法继续。"
       upload_queue_complete: "列表上传完毕。"
       upload_select_image_desc: "只能上传(jpg,png,gif)等格式的图片文件。"
+      upload_dialog_close: "本次操作一共添加 {0} 个任务，其中 {1} 个任务无法添加到列队。"
+      upload_queue_complete: "操作成功！成功上传 {0} 个任务， 失败 {1} 个任务。"
